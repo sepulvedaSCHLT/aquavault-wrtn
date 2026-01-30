@@ -4,19 +4,20 @@
 
 > **Network:** BNB Smart Chain (BEP-20)  
 > **Verified contract:** `0x668aF355D33662C2E0200eBe947db6241D9a906d`  
-> **Official website:** https://tokenaquavault.com  
-> **Whitepaper (PDF):** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf
-> **Official contact:** https://tokenaquavault.com/contact/  
-> **Official email:** project.info@tokenaquavault.com
+> **Official website:** https://www.tokenaquavault.com  
+> **Whitepaper (PDF):** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf  
+> **Official contact:** https://www.tokenaquavault.com/contact/  
+> **Official email:** project.info@tokenaquavault.com  
 
 ---
 
 ## Quick Verification (BscScan / Public Links)
 
 - **BscScan (Contract):** https://bscscan.com/address/0x668aF355D33662C2E0200eBe947db6241D9a906d  
-- **Documentation hub:** https://tokenaquavault.com/documentation/  
-- **Project page:** https://tokenaquavault.com/project/  
-- **Whitepaper (PDF):** https://tokenaquavault.com/assets/docs/WHITEPAPER_AQUAVAULT_WRTN.pdf  
+- **Documentation hub:** https://www.tokenaquavault.com/documentation/  
+- **Project page:** https://www.tokenaquavault.com/project/  
+- **Whitepaper (PDF):** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf  
+- **Official contact:** https://www.tokenaquavault.com/contact/  
 - **GitHub repository:** https://github.com/sepulvedaSCHLT/aquavault-wrtn  
 - **X (Project):** https://x.com/AQUAVAULT_WRTN  
 - **LinkedIn (Project):** https://www.linkedin.com/company/aquavault-wrtn  
@@ -46,36 +47,36 @@ This repository is part of that verification layer.
 
 ## Smart Contract Summary (Based on the Verified Code)
 
-**Token metadata**
+### Token metadata
 - **Name:** AQUAVAULT  
 - **Symbol:** WRTN  
 - **Decimals:** 18  
 
-**Supply**
+### Supply
 - **Max supply cap (hard-coded):** `200,000,000 WRTN` (18 decimals)
 - The contract mints the full cap at deployment to the **owner**.
 - **Owner-controlled mint exists** but cannot exceed `MAX_SUPPLY`.
 - **Owner-controlled burn** reduces total supply.
 
-**Transfer fee (basis points)**
+### Transfer fee (basis points)
 - Transfer fee is configurable via `setFeeBps()` and routed to `feeRecipient`.
 - **Hard cap by code:** `MAX_FEE_BPS = 300` (3.00%)
 - Fee can be set to `0` (disabled).
 - Fee exemptions supported: `isFeeExempt`.
 
-**Max wallet limit (anti-whale)**
+### Max wallet limit (anti-whale)
 - Configurable max wallet via `setMaxWalletBps()`.
 - **Hard cap by code:** `HARD_CAP_WALLET_BPS = 3000` (30.00%)
 - Max wallet amount is dynamic: `maxWalletAmount()` uses `totalSupply` (changes after burns).
 - Exemptions supported: `isMaxWalletExempt`.
 
-**Safety controls**
+### Safety controls
 - **Pause / Unpause**: callable by `owner` or `emergencyManager`.
 - **Strict pause behavior**: while paused, only the **owner** can move tokens.
 - **Freeze list**: owner can block transfers from/to frozen addresses (`isFrozen`).
 
-**Events**
-- Administrative changes emit events (fee changes, max wallet changes, emergency manager update, freeze, pause/unpause), supporting public review through BscScan.
+### Events
+Administrative changes emit events (fee changes, max wallet changes, emergency manager update, freeze, pause/unpause), supporting public review through BscScan.
 
 ---
 
@@ -83,25 +84,25 @@ This repository is part of that verification layer.
 
 AQUAVAULT follows a staged approach:
 1. **Foundation:** verified contract, public documentation, official channels.
-2. **Market readiness:** liquidity planning, public disclosure of relevant policies (e.g., custody/LP approach when applicable).
+2. **Market readiness:** liquidity planning and public disclosure of relevant policies (e.g., custody/LP approach when applicable).
 3. **Execution milestones:** real-world water initiatives with evidence releases (reports, links, and verifiable references where appropriate).
 4. **Scaling:** automation of transparency reporting and broader integrations.
 
-This is an **operational intention** and does not imply guaranteed outcomes.
+This describes operational intent and does not imply guaranteed outcomes.
 
 ---
 
 ## Documentation
 
-- **AQUAPAPER (GitHub Whitepaper):** `docs/whitepaper_aquavault_wrtn_oficial.md`
-- **Whitepaper (PDF):** https://tokenaquavault.com/assets/docs/WHITEPAPER_AQUAVAULT_WRTN.pdf  
-- **Documentation page:** https://tokenaquavault.com/documentation/
+- **AQUAPAPER (GitHub Whitepaper):** `docs/whitepaper_aquavault_wrtn_oficial.md`  
+- **Whitepaper (PDF):** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf  
+- **Documentation page:** https://www.tokenaquavault.com/documentation/  
 
 ---
 
 ## Contact & Official Channels
 
-- **Contact form:** https://tokenaquavault.com/contact/  
+- **Contact form:** https://www.tokenaquavault.com/contact/  
 - **Email:** project.info@tokenaquavault.com  
 - **X (Project):** https://x.com/AQUAVAULT_WRTN  
 - **LinkedIn (Project):** https://www.linkedin.com/company/aquavault-wrtn  
