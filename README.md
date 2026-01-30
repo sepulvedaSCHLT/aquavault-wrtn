@@ -6,6 +6,7 @@
 > **Verified contract:** `0x668aF355D33662C2E0200eBe947db6241D9a906d`  
 > **Official website:** https://tokenaquavault.com  
 > **Whitepaper (PDF):** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf
+
 > **Official contact:** https://tokenaquavault.com/contact/  
 > **Official email:** project.info@tokenaquavault.com
 
