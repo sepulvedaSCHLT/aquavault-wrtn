@@ -1,227 +1,165 @@
-# Whitepaper – AQUAVAULT (WRTN)
-## Proyecto ecológico para la creación de reservas de agua potable
+# AQUAPAPER (Whitepaper) — AQUAVAULT (WRTN)
+**Tokenization with purpose:** transparent funding mechanisms designed to support real-world water infrastructure and the creation of potable water reserves with public traceability.
+
+> **Network:** BNB Smart Chain (BEP-20)  
+> **Contract (verified):** `0x668aF355D33662C2E0200eBe947db6241D9a906d`  
+> **Official website:** https://tokenaquavault.com  
+> **Whitepaper PDF:** https://tokenaquavault.com/assets/docs/WHITEPAPER_AQUAVAULT_WRTN.pdf
 
 ---
 
-## 1. Introducción
+## 1. Introduction
 
-El agua potable es un recurso cada vez más escaso. Según la ONU, más de 2.000 millones de personas carecen de acceso seguro al agua, y se estima que para 2030 la demanda global podría superar en un 40 % la disponibilidad actual.
+Access to safe drinking water is a growing global challenge. AQUAVAULT (WRTN) was created to demonstrate that tokenization can go beyond speculation by turning digital traceability into measurable support for real-world water infrastructure.
 
-En este contexto, se hace urgente desarrollar modelos de financiamiento que permitan acelerar la creación de infraestructuras hídricas sostenibles, transparentes y auditables.
-
-AQUAVAULT (WRTN) nace con la intención de conectar el ecosistema cripto con la creación de reservas reales de agua potable y, en fases posteriores, utilizar esta misma agua como recurso estratégico para infraestructura tecnológica.
+The core principle is simple: **publish verifiable information**, keep official links consistent, and provide a structure where progress can be audited through public documentation and on-chain evidence.
 
 ---
 
-## 2. Objetivo del Proyecto
+## 2. Project Objective
 
-AQUAVAULT (WRTN) busca financiar y desarrollar reservas de agua potable, beneficiando directamente a los poseedores del token y a comunidades que necesitan acceso a agua segura.
+AQUAVAULT (WRTN) is designed to help finance and develop potable water reserves and related infrastructure through a phased execution model supported by public traceability.
 
-Los objetivos principales son:
-
-- **Asegurar reservas de agua potable** a través de proyectos físicos (pozos, plantas, almacenamiento).
-- **Mejorar la eficiencia energética** apoyando sistemas de enfriamiento sostenible con agua para servidores y minería de criptomonedas.
-- **Integrar tecnología blockchain** como capa de transparencia financiera y trazabilidad de fondos.
-- **Crear un activo digital sólido**, con reglas claras de emisión, límites de concentración y mecanismos de protección para los usuarios.
-
----
-
-## 3. Características del Token
-
-### 3.1 Datos generales
-
-- **Nombre:** AQUAVAULT  
-- **Símbolo:** WRTN  
-- **Red:** Binance Smart Chain – estándar BEP-20  
-- **Decimales:** 18  
-- **Suministro máximo fijo:** 200.000.000 WRTN  
-- **Emisión adicional:** no existe función de mint posterior al despliegue (supply cerrado).  
-- **Tipo de contrato:** Token BEP-20 no actualizable (no proxy / no upgradeable)
-
-El suministro total se crea en el momento del despliegue y se distribuye según la tokenomics definida. A partir de ese punto no se pueden generar nuevos WRTN; el token solo puede volverse deflacionario mediante quema voluntaria.
+Primary objectives:
+- **Build and support potable water reserves** through real-world infrastructure (storage, supply, water systems, maintenance).
+- **Promote sustainable operational models** where water infrastructure is planned, executed, and maintained with transparent reporting.
+- **Use blockchain as a transparency layer** for auditability of key parameters and (when applicable) traceable transfers.
+- **Operate with clear token rules** (hard-coded limits, configurable parameters within caps, and security controls).
 
 ---
 
-### 3.2 Límite por wallet (anti-ballenas)
+## 3. Token Overview
 
-Con el fin de reducir riesgos de manipulación extrema de mercado y concentraciones excesivas, el contrato implementa una lógica de límite por wallet:
+### 3.1 Core parameters (BEP-20)
+- **Name:** AQUAVAULT  
+- **Symbol:** WRTN  
+- **Network:** BNB Smart Chain (BEP-20)  
+- **Decimals:** 18  
+- **Max supply cap (by code):** **200,000,000 WRTN**  
+- **Contract type:** **Non-proxy / non-upgradeable** (no upgrade pattern)
 
-- **Límite máximo duro:** ninguna wallet externa puede superar el **30 %** del suministro total.
-- El owner puede **ajustar dinámicamente el porcentaje máximo permitido**, hacia arriba o hacia abajo, **pero nunca puede superar el 30 %** (tope duro codificado en el contrato).
-- Este límite se aplica únicamente a **wallets externas**; pueden ser excluidas del límite:
-  - La wallet del owner,
-  - La wallet de reserva de agua,
-  - La pool de liquidez principal,
-  - Otras wallets internas del proyecto (tesorería, marketing, desarrollo, etc.) marcadas explícitamente.
+### 3.2 Anti-whale holding limit (max wallet)
+To reduce extreme concentration risk:
+- The contract includes a **max wallet holding rule** with a **hard cap by code of 30.00%** (3000 bps) of supply for non-exempt wallets.
+- The operational value may be configured **below** the cap depending on stage and risk management.
+- Certain addresses may be exempted (e.g., operational wallets or liquidity-related contracts) when justified and disclosed via official channels.
 
-El objetivo es evitar que una sola wallet externa acumule una porción desproporcionada del supply, reduciendo el riesgo de dumps masivos y manipulación de precio.
+### 3.3 Transfer fee (eco fee) and recipient
+To support the project’s operational model:
+- Transfers can include a **configurable fee** with a **hard cap by code**.
+- The fee (when enabled) is routed to a designated **fee recipient** address.
+- Exemptions may exist for specific operational cases (e.g., liquidity mechanics), and changes are verifiable via on-chain state and events.
 
----
+> **Important:** This document avoids stating “current” values as fixed facts unless explicitly published. The authoritative source is the contract state and its transaction/event history.
 
-### 3.3 Comisión ecológica (fee 0–2 %)
+### 3.4 Security controls (pause / freeze)
+The contract includes emergency controls designed for incident response:
+- **Pause/unpause:** administrative control intended to mitigate abnormal conditions.
+- **Strict pause behavior:** while paused, transfers may be restricted (implementation detail is verifiable on-chain).
+- **Optional freeze list:** ability to block transfers from/to flagged addresses (where implemented).
 
-Cada transferencia de WRTN puede estar sujeta a un **fee ecológico** destinado al Fondo de Reservas de Agua.
-
-- **Rango de fee permitido:** entre **0 % y 2 %** (0–200 basis points).  
-- **Valor objetivo de operación:** 2 % destinado al Fondo de Reserva de Agua.  
-- **Destino del fee:** una wallet específica asignada al **Fondo de Reservas de Agua**.  
-- **Exenciones:** ciertas direcciones (por ejemplo, la propia wallet de reserva, direcciones técnicas o de liquidez) pueden ser marcadas como **exentas de fee**, para no penalizar operaciones críticas.
-
-El propio contrato impide cualquier valor de fee superior al 2 %: no es posible establecer comisiones confiscatorias más allá de ese límite.
-
-Cuando el fee está configurado en 0 %, las transferencias se comportan como un BEP-20 estándar sin comisión adicional.
-
----
-
-### 3.4 Funciones de quema (burn)
-
-El diseño del suministro de WRTN está orientado a la seguridad y la deflación voluntaria:
-
-- **No existe mint posterior al despliegue:**
-  - Todo el suministro (200.000.000 WRTN) se crea en el constructor del contrato.
-  - No hay función pública de creación de nuevos tokens.
-
-- **Burn por parte de los usuarios (deflación voluntaria):**
-  - **Cualquier titular de WRTN** puede quemar voluntariamente sus propios tokens mediante una función pública `burn()`.
-  - Esto reduce el suministro circulante y el suministro total.
-  - La lógica de burn está diseñada para que *solo* el dueño de los tokens pueda destruirlos; no se permite quemar fondos ajenos.
-
-Este enfoque convierte a WRTN en un activo con **supply fijo máximo y potencialmente deflacionario**, dependiendo del comportamiento de los holders y de las posibles campañas de quema que el propio proyecto pueda incentivar.
+These controls are intended to reduce operational risk, not to guarantee outcomes.
 
 ---
 
-### 3.5 Cambio de direcciones críticas
+## 4. Tokenomics (Operational Plan)
 
-Para gestionar el proyecto a largo plazo y aumentar la robustez operativa durante la fase inicial, el contrato permite:
+This section describes a **planning framework**. Execution should be reflected through verifiable on-chain activity (where applicable) and public updates via official channels.
 
-- **Actualizar la wallet del Fondo de Reservas de Agua**  
-  (por ejemplo, si se migra a una multisig o a una entidad regulada).
-- **Registrar la dirección de la pool de liquidez principal**  
-  (por ejemplo, el par WRTN/BNB en PancakeSwap) y excluirla del límite por wallet para garantizar la operativa normal del mercado.
-- **Marcar wallets internas del proyecto** como excluidas de:
-  - Fee (para evitar comisiones en operaciones de tesorería, liquidez, etc.),
-  - Límite por wallet (para permitir una gestión estructurada de reservas y fondos internos).
+### 4.1 Reference allocation framework (max cap: 200,000,000 WRTN)
+- **Water Reserve Fund:** 50% (100,000,000 WRTN)  
+  Real-world water initiatives and reserve development supported by public evidence.
+- **Initial Liquidity:** 20% (40,000,000 WRTN)  
+  Market readiness and liquidity provisioning (DEX first approach where applicable).
+- **Marketing & Outreach:** 15% (30,000,000 WRTN)  
+  Communications, listings, partnerships, and community operations.
+- **Technology Development:** 10% (20,000,000 WRTN)  
+  Transparency tooling, reporting automation, and integrations.
+- **Emergency / Contingency:** 5% (10,000,000 WRTN)  
+  Audits, security hardening, incident response, operational contingencies.
 
-Estos cambios solo pueden ser ejecutados por el owner durante la fase ajustable y generan eventos on-chain verificables.
+> Movements and relevant decisions should be communicated publicly and, when possible, supported with verifiable references.
 
----
+### 4.2 Fee flow (simplified)
+When fee is enabled:
+1. A transfer occurs between two addresses.
+2. The fee portion is routed to the configured **fee recipient**.
+3. Funds may be used according to the project’s phased execution plan and reporting policy.
 
-## 4. Tokenomics del Proyecto
-
-### 4.1 Flujo de la comisión ecológica
-
-El fee se orienta a financiar proyectos reales de agua potable. Un esquema simplificado:
-
-1. El Usuario A envía WRTN al Usuario B.  
-2. Del monto total:
-   - Una parte llega al receptor (por ejemplo, 98 % si el fee está en 2 %).
-   - La fracción correspondiente al fee (por ejemplo, 2 %) se redirige a la **wallet del Fondo de Reservas de Agua**.
-3. Los fondos acumulados en esa wallet se destinan a:
-   - Diseño y construcción de reservas de agua potable.
-   - Mantenimiento, operación y auditoría de las infraestructuras.
-   - Iniciativas complementarias (educación, tecnología, estudios de impacto).
-
-Si el fee se ajusta a 0 %, este flujo se detiene y todas las transferencias se realizan al 100 % sin comisión, conservando la lógica de límite por wallet.
+When fee is disabled (0), transfers behave like a standard BEP-20 transfer (subject to other rules such as max wallet).
 
 ---
 
-### 4.2 Distribución inicial del suministro
+## 5. Governance and Operational Phases
 
-La distribución base, sobre un suministro máximo de **200.000.000 WRTN**, está planteada de forma que equilibre sostenibilidad financiera, liquidez de mercado y capacidad de ejecución del proyecto:
+### 5.1 Two-phase operating approach (concept)
+AQUAVAULT is designed to be operated in phases:
+1. **Bootstrapping / configuration phase:** parameters may be adjusted within hard-coded limits based on operational conditions (liquidity depth, risk, readiness).
+2. **Stability phase:** the project aims to reduce change frequency and rely on consistent public reporting and verifiable references.
 
-- **Fondo de Reserva de Agua – 50 % (100.000.000 WRTN)**  
-  Financia proyectos de agua potable y sostenibilidad ambiental.
+> Any administrative changes should be visible on-chain and communicated through official channels.
 
-- **Liquidez Inicial – 20 % (40.000.000 WRTN)**  
-  Provisión de liquidez en DEX/CEX para facilitar la libre negociación y reducir volatilidad excesiva.
-
-- **Marketing y Promoción – 15 % (30.000.000 WRTN)**  
-  Campañas de adopción, listados, alianzas estratégicas y presencia de marca en el ecosistema cripto y ecológico.
-
-- **Desarrollo Tecnológico – 10 % (20.000.000 WRTN)**  
-  Evolución del contrato inteligente, integraciones Web3, herramientas de monitoreo y futuros desarrollos de infraestructura tecnológica asociada al agua.
-
-- **Fondo de Emergencia – 5 % (10.000.000 WRTN)**  
-  Auditorías, seguridad, mitigación de incidentes y contingencias operativas.
-
-La asignación exacta en mainnet y los movimientos relevantes de estas wallets se documentarán en:
-
-- Sitio web oficial,  
-- Whitepaper,  
-- Repositorio de GitHub,  
-- Canales de comunicación del proyecto.
+### 5.2 What is verifiable
+Independent reviewers can verify:
+- Contract deployment and verification on BscScan
+- Total supply and token metadata (as exposed by the contract)
+- Event history related to administrative actions (where applicable)
+- Transfers and relevant on-chain references
 
 ---
 
-## 5. Gobernanza del contrato inteligente
+## 6. Liquidity Plan (High-Level)
 
-### 5.1 Modelo de dos fases
+AQUAVAULT approaches liquidity in a way that reduces risks associated with weak pools (low depth, high volatility, manipulation risk).
+- **Suggested initial pair:** WRTN/WBNB (BSC DEX)
+- **Liquidity provisioning:** executed only when operational and communication criteria are met
+- **LP custody policy:** recommended to be publicly stated (locking/custody approach) with verifiable references when available
 
-El contrato de AQUAVAULT (WRTN) ha sido diseñado con un modelo de gobernanza en **dos fases**:
-
-1. Una **fase ajustable inicial**, donde el owner dispone de un margen controlado para ajustar parámetros clave dentro de límites estrictos ya codificados.
-2. Una fase final de **inmutabilidad total**, lograda mediante la llamada a `renounceOwnership()`, que deja el contrato sin propietario y sin capacidad de modificación administrativa.
-
-Este enfoque busca combinar flexibilidad responsable en el arranque con máxima confianza a largo plazo para holders e inversores.
+This section is informational and does not imply financial results.
 
 ---
 
-### 5.2 Parámetros ajustables (con límites codificados)
+## 7. Blockchain ↔ Real-World Bridge (Impact Model)
 
-Mientras exista un `owner` activo, se pueden ajustar solo los siguientes parámetros, siempre dentro de rangos definidos en el código:
-
-- **Fee de transacción (0 % – 2 %)**  
-  - Parámetro: `feeBasisPoints` (basis points; 100 = 1 %, 200 = 2 %).  
-  - Rango permitido: **0 a 200 bps**.  
-  - El contrato **rechaza cualquier intento** de establecer un fee superior al 2 %.
-
-- **Límite de posesión por wallet (0 % – 30 % del suministro)**  
-  - Parámetro: `maxWalletBps`.  
-  - Tope duro codificado: 3.000 bps = **30 %** del suministro total.  
-  - El owner puede reducir o incrementar el límite dentro de este rango, pero nunca sobrepasar el 30 %.
-
-- **Wallet de reserva y wallets internas**  
-  - `setReserveWallet()` define la dirección donde se acumula el fee ecológico.  
-  - `setLiquidityPool()` marca la pool de liquidez principal y la excluye del límite por wallet.  
-  - `setExcludedFromFees()` y `setExcludedFromMaxWallet()` permiten declarar wallets internas que no deben pagar fee o no deben estar sujetas al límite por wallet (tesorería, marketing, desarrollo, etc.).
-
-Incluso durante esta fase, se mantienen dos garantías clave:
-
-- El **suministro máximo de 200.000.000 WRTN no puede aumentar**.  
-- **Cualquier holder** puede quemar sus tokens mediante `burn()`, reduciendo el supply total.
+The project goal is to connect on-chain traceability with real-world water execution using a modular approach:
+- **Initiative selection criteria:** feasibility + measurable impact
+- **Pre-feasibility:** scope, timeline, maintenance planning, risks
+- **Milestone-based execution:** smaller deliverables with public reporting
+- **Proof of Water:** periodic evidence releases (reports, technical documentation, links; document hashes where appropriate)
+- **Financial traceability:** publish relevant transaction references when they do not compromise security
 
 ---
 
-### 5.3 Fase ajustable (“bootstrapping phase”)
+## 8. Roadmap (High-Level)
 
-La fase ajustable corresponde al período en el que el equipo de AQUAVAULT:
-
-- Configura y prueba:
-  - Fee de transacción dentro del rango 0–2 %,
-  - Límite de tenencia por wallet dentro del rango 0–30 %,
-  - Wallet de reserva, liquidez y wallets internas.
-- Observa el comportamiento real del mercado y el impacto del fee ecológico.
-- Corrige, si es necesario, desajustes iniciales siempre bajo las restricciones definidas en el contrato.
-
-Todos los cambios administrativos realizados en esta etapa:
-
-- Quedan registrados on-chain y son visibles en BscScan.
-- Se comunicarán en los canales oficiales del proyecto (web, GitHub, redes sociales).
-
-El objetivo no es mutar arbitrariamente la tokenomics, sino **afinarla en producción** antes de fijarla para siempre.
+- **Phase 1 — Foundation:** verified contract, official site, documentation, contact channels, first transparency release.
+- **Phase 2 — Market readiness:** liquidity preparation, policy publication, partnerships and operational structure.
+- **Phase 3 — Execution:** water infrastructure milestones and recurring public reporting.
+- **Phase 4 — Scaling:** automation, integrations, expanded execution model.
 
 ---
 
-### 5.4 Renuncia a la propiedad e inmutabilidad
+## 9. Risks and Security Notes
 
-Cuando:
+Cryptoassets are volatile and involve risk.
+- **Market risk:** price volatility; no returns are promised.
+- **Operational risk:** real-world execution requires vendors, permits, logistics, and maintenance.
+- **Security:** emergency controls exist to reduce incident impact, but do not guarantee prevention.
+- **Transparency vs security:** evidence should be published without exposing sensitive operational details (keys, attack surface, internal security specifics).
 
-- El fee de transacción se haya validado como sostenible,
-- El límite máximo por wallet externa esté definido,
-- La configuración de wallets internas y liquidez esté consolidada,
+---
 
-el equipo ejecutará la función:
+## 10. Disclaimer
 
-```solidity
-renounceOwnership()
+This document is provided for informational purposes only and is not financial advice, legal advice, or an offer to sell securities. AQUAVAULT (WRTN) does not guarantee outcomes, returns, or execution timelines. Always verify on-chain information and perform your own research (DYOR).
 
+---
+
+## Official Links (Verification)
+- **Website:** https://tokenaquavault.com  
+- **Contact:** https://tokenaquavault.com/contact/  
+- **Whitepaper (PDF):** https://tokenaquavault.com/assets/docs/WHITEPAPER_AQUAVAULT_WRTN.pdf  
+- **BscScan (Contract):** https://bscscan.com/address/0x668aF355D33662C2E0200eBe947db6241D9a906d  
+- **GitHub:** https://github.com/sepulvedaSCHLT/aquavault-wrtn  
+- **X (Project):** https://x.com/AQUAVAULT_WRTN  
+- **LinkedIn (Project):** https://www.linkedin.com/company/aquavault-wrtn  
