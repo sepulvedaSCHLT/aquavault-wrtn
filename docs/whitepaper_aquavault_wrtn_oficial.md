@@ -1,10 +1,11 @@
 # AQUAPAPER (Whitepaper) — AQUAVAULT (WRTN)
+
 **Tokenization with purpose:** transparent funding mechanisms designed to support real-world water infrastructure and the creation of potable water reserves with public traceability.
 
 > **Network:** BNB Smart Chain (BEP-20)  
 > **Contract (verified):** `0x668aF355D33662C2E0200eBe947db6241D9a906d`  
-> **Official website:** https://tokenaquavault.com  
-> **Whitepaper PDF:** https://tokenaquavault.com/assets/docs/WHITEPAPER_AQUAVAULT_WRTN.pdf
+> **Official website:** https://www.tokenaquavault.com  
+> **Whitepaper PDF:** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf
 
 ---
 
@@ -156,10 +157,10 @@ This document is provided for informational purposes only and is not financial a
 ---
 
 ## Official Links (Verification)
-- **Website:** https://tokenaquavault.com  
-- **Contact:** https://tokenaquavault.com/contact/  
-- **Whitepaper (PDF):** https://tokenaquavault.com/assets/docs/WHITEPAPER_AQUAVAULT_WRTN.pdf  
+
+- **Website:** https://www.tokenaquavault.com  
+- **Contact:** https://www.tokenaquavault.com/contact/  
+- **Whitepaper (PDF):** https://www.tokenaquavault.com/assets/docs/aquapaper-aquavault-wrtn.pdf  
 - **BscScan (Contract):** https://bscscan.com/address/0x668aF355D33662C2E0200eBe947db6241D9a906d  
 - **GitHub:** https://github.com/sepulvedaSCHLT/aquavault-wrtn  
-- **X (Project):** https://x.com/AQUAVAULT_WRTN  
-- **LinkedIn (Project):** https://www.linkedin.com/company/aquavault-wrtn  
+- **X (Project):** https://x.com/AQUAVAULT_WRTN
